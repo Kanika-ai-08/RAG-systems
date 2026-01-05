@@ -1,4 +1,5 @@
 This repository will have all the basics impletation of RAG 
+
 - Ingestion pipeline
       - Load all the documents
       - Chunking 
