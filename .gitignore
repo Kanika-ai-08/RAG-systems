@@ -1,0 +1,11 @@
+# Python virtual environment
+venv/
+
+# Environment variables
+.env
+
+# Documentation folder
+docs/
+
+# Database folder
+db/

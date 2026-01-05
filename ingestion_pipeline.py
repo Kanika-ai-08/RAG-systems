@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+#Ingestion Pipeline to create and persist vector store
+
 def load_documents(docs_path = "docs"):
     if not os.path.exists(docs_path):
         raise ValueError(f"The specified path does not exist: {docs_path}")

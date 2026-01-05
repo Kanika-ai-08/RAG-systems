@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Retrieve the existing vector store
+
 persistence_directory = "db/chroma_db"
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
