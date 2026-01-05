@@ -34,3 +34,4 @@ for i, doc in enumerate(relevant_docs):
     print(f"Document {i+1}: ")
     print(f" Content preview: {doc.page_content}...")
     print("--" * 50)
+    print("\n")
