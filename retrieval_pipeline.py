@@ -1,6 +1,8 @@
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage , SystemMessage
 
 load_dotenv()
 
@@ -35,3 +37,24 @@ for i, doc in enumerate(relevant_docs):
     print(f" Content preview: {doc.page_content}...")
     print("--" * 50)
     print("\n")
+
+prompt_template = f"""You are an expert assistant that helps answer user queries based on the provided context. Use the context to provide accurate and concise answers.
+
+Context:
+{chr(10).join([doc.page_content for doc in relevant_docs])}
+
+Question:
+{query}
+"""
+
+model = ChatOpenAI(model="gpt-4o", temperature=0)
+
+messages = [
+    SystemMessage(content="You are a helpful assistant that provides answers based on the given context."), 
+    HumanMessage(content=prompt_template)
+]
+
+result = model.invoke(messages)
+
+print("------Answer-------")
+print(result.content)
